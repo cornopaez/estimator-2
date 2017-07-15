@@ -5,6 +5,7 @@ const helmet = require('helmet');
 const bodyParser = require('body-parser');
 const routes = require('./routes/routes.js');
 
+// Use Hemlet for security
 app.use(helmet());
 
 app.use(bodyParser.json()); // support json encoded bodies
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true })); // support encoded bodies
 
 app.use("/js", express.static(__dirname + "/assets/js"));
 app.use("/views", express.static(__dirname + "/assets/views"));
+app.use('/stylesheets', express.static(__dirname + "/assets/css"))
 
 app.use('/', routes);
 
